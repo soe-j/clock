@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>clock</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hour = document.getElementById("hour");
+        const min = document.getElementById("min");
+        const colon = document.getElementById("colon");
+
+        setInterval(() => {
+          const time = new Date();
+          hour.innerText = zeroPad(time.getHours());
+          min.innerText = zeroPad(time.getMinutes());
+
+          if (time.getSeconds() % 2) {
+            colon.classList.add("hidden");
+          } else {
+            colon.classList.remove("hidden");
+          }
+        }, 1000);
+
+        const zeroPad = (num) => {
+          return ("0" + num).slice(-2);
+        };
+      });
+    </script>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        font-size: 0;
+        display: flex;
+        justify-content: space-between;
+        background: black;
+      }
+      div {
+        font-size: 30vw;
+        font-weight: bold;
+        color: white;
+        line-height: 100vh;
+        vertical-align: middle;
+      }
+      .hidden {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hour">00</div>
+    <div id="colon">:</div>
+    <div id="min">00</div>
+  </body>
+</html>
