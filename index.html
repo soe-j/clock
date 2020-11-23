@@ -8,6 +8,16 @@
         const min = document.getElementById("min");
         const colon = document.getElementById("colon");
 
+        const fontSize = (window.outerWidth * 30) / 100 + "px";
+        hour.style.fontSize = fontSize;
+        min.style.fontSize = fontSize;
+        colon.style.fontSize = fontSize;
+
+        const lineHeight = window.outerHeight + "px";
+        hour.style.lineHeight = lineHeight;
+        min.style.lineHeight = lineHeight;
+        colon.style.lineHeight = lineHeight;
+
         setInterval(() => {
           const time = new Date();
           hour.innerText = zeroPad(time.getHours());
@@ -27,19 +37,17 @@
     </script>
     <style>
       body {
-        height: 100vh;
+        height: 100%;
         margin: 0;
         font-size: 0;
         font-family: "Hiragino Kaku Gothic ProN", sans-serif, system-ui;
-        display: flex;
+        display: -webkit-flex;
         justify-content: space-between;
         background: black;
       }
       div {
-        font-size: 30vw;
         font-weight: bold;
         color: white;
-        line-height: 100vh;
         vertical-align: middle;
       }
       .hidden {
