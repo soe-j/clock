@@ -3,7 +3,7 @@
   <head>
     <title>clock</title>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
         const hour = document.getElementById("hour");
         const min = document.getElementById("min");
         const colon = document.getElementById("colon");
@@ -18,7 +18,7 @@
         min.style.lineHeight = lineHeight;
         colon.style.lineHeight = lineHeight;
 
-        setInterval(() => {
+        setInterval(function () {
           const time = new Date();
           hour.innerText = zeroPad(time.getHours());
           min.innerText = zeroPad(time.getMinutes());
@@ -30,7 +30,7 @@
           }
         }, 1000);
 
-        const zeroPad = (num) => {
+        const zeroPad = function (num) {
           return ("0" + num).slice(-2);
         };
       });
